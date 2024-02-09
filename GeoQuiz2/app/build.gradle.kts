@@ -4,6 +4,10 @@ plugins {
 }
 
 android {
+
+    viewBinding {
+        enable = true
+    }
     namespace = "com.morrison.msu.geoquiz"
     compileSdk = 34
 
@@ -33,6 +37,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding
+        true
+    }
+
 }
 
 dependencies {
