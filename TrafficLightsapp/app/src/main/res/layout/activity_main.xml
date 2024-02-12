@@ -1,0 +1,50 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.morrison.msu.trafficlightsapp.MainViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/redLight"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/redlight"
+            android:layout_centerInParent="true"
+            app:visibility="@{viewModel.isStop ? View.VISIBLE : View.INVISIBLE}" />
+
+        <ImageView
+            android:id="@+id/yellowLight"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/yellowlight"
+            android:layout_centerInParent="true"
+            app:visibility="@{viewModel.isWait ? View.VISIBLE : View.INVISIBLE}" />
+
+        <ImageView
+            android:id="@+id/greenLight"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/greenlight"
+            android:layout_centerInParent="true"
+            app:visibility="@{viewModel.isGo ? View.VISIBLE : View.INVISIBLE}" />
+
+        <Button
+            android:id="@+id/trafficButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/greenLight"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.buttonText}"
+            android:onClick="@{() -> viewModel.onButtonClick()}" />
+    </RelativeLayout>
+</layout>
